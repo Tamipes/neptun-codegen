@@ -18,7 +18,7 @@
 // @downloadURL     https://raw.githubusercontent.com/fzs111/neptun-codegen/main/userscript.user.js
 // ==/UserScript==
 
-const KEY_LENGTH = 35; //bytes
+const KEY_LENGTH = 32.5; //bytes
 
 (async function() {
     'use strict';
