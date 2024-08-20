@@ -29,7 +29,7 @@ const KEY_LENGTH = 35; //bytes
 
     addChangeKeyMenuItem();
 
-    if(/login.aspx/i.test(pathname)) {
+    if(/Account\/Login2FA/i.test(pathname)) {
         handleLoginPage();
     }
 
@@ -120,19 +120,19 @@ const KEY_LENGTH = 35; //bytes
         }
 
         function update() {
-            if(document.querySelector('#tokenValidationModal')?.style.display !== 'none') {
+            //if(document.querySelector('#tokenValidationModal')?.style.display !== 'none') {
                 // Fill in 2FA token
-                document.querySelector('#token').value = totp.generate();
+                document.querySelector('#TOTPCode').value = totp.generate();
 
                 // Click Login button
-                document.querySelector('button[sdavalidatetoken="submit"]')?.click();
-            }
+                document.querySelector('button.btn-primary')?.click();
+            //}
         }
 
         const observer = new MutationObserver(update);
 
-        observer.observe(document.querySelector('#tokenValidationModal'), { attributes: true });
-
+        //observer.observe(document.querySelector('#tokenValidationModal'), { attributes: true });
+        update();
         setInterval(update, 30000);
     }
 
