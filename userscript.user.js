@@ -6,19 +6,19 @@
 // @author          FZs
 // @copyright       Copyright © 2024 FZs
 // @include         https://*neptun*/*hallgato*/*
-// @match           https://neptun.uni-obuda.hu/hallgato/*
+// @match           https://neptun.elte.hu/*
 // @require         https://cdnjs.cloudflare.com/ajax/libs/otpauth/9.3.1/otpauth.umd.min.js
 // @grant           GM.getValue
 // @grant           GM.setValue
 // @grant           GM.registerMenuCommand
-// @homepage        https://github.com/fzs111/neptun-codegen
-// @homepageURL     https://github.com/fzs111/neptun-codegen
-// @supportURL      https://github.com/fzs111/neptun-codegen/issues
-// @updateURL       https://raw.githubusercontent.com/fzs111/neptun-codegen/main/userscript.user.js
-// @downloadURL     https://raw.githubusercontent.com/fzs111/neptun-codegen/main/userscript.user.js
+// @homepage        https://github.com/tamipes/neptun-codegen
+// @homepageURL     https://github.com/tamipes/neptun-codegen
+// @supportURL      https://github.com/tamipes/neptun-codegen/issues
+// @updateURL       https://raw.githubusercontent.com/tamipes/neptun-codegen/main/userscript.user.js
+// @downloadURL     https://raw.githubusercontent.com/tamipes/neptun-codegen/main/userscript.user.js
 // ==/UserScript==
 
-const KEY_LENGTH = 32.5; //bytes
+const KEY_LENGTH = 32; //bytes
 
 (async function() {
     'use strict';
@@ -91,7 +91,7 @@ const KEY_LENGTH = 32.5; //bytes
                 }
 
                 if(newSecret.bytes.length !== KEY_LENGTH) {
-                    const forceDifferentLength = confirm(`Helytelen kulcs: a kódolt adat nem ${KEY_LENGTH} bájt!\nBiztosan menteni akarod ezt a kulcsot?\n(Mégse esetén szerkesztheted)`);
+                    const forceDifferentLength = confirm(`Helytelen kulcs: a kódolt adat nem ${KEY_LENGTH} bájt, hanem ${newSecret.bytes.length}!\nBiztosan menteni akarod ezt a kulcsot?\n(Mégse esetén szerkesztheted)`);
 
                     if(!forceDifferentLength) {
                         continue;
